@@ -11,7 +11,8 @@ variables:
 steps:
 - task: Docker@2
   inputs:
-    containerRegistry: 'Docker Hub'
-    repository: 'test'
+    containerRegistry: |
+      $(dockerHub)
+    repository: $(imageName)
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
