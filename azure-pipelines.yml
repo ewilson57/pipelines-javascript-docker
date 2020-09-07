@@ -6,13 +6,13 @@ pool:
 
 variables:
   imageName: 'pipelines-javascript-docker'
-  dockerHub: 'dockerHub'
 
 steps:
 - task: Docker@2
   inputs:
-    containerRegistry: |
-      $(dockerHub)
+    containerRegistry: dockerHub
     repository: $(imageName)
-    command: 'buildAndPush'
+    command: buildAndPush
     Dockerfile: '**/Dockerfile'
+    tags: latest
+
